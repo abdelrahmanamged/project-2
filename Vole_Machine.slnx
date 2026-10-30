@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Vole_Machine/Vole_Machine.vcxproj" Id="107f6e99-d72b-4c13-9a73-84487d8fb358" />
+</Solution>
