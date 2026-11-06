@@ -54,9 +54,33 @@ void CPU::execute(int op0, int op1, int op2, int op3, Memory &m, RegisterFile &r
     {
         r.set(op3, r.get(op2)); // op1=0
     }
-    else if (op0 == 5) // add
+    else if (op0 == 5) // add Integer
     {
         r.set(op1, r.get(op2) + r.get(op3));
+    }
+    else if (op0 == 6) // add floating
+    {
+        r.set(op1, (r.get(op2) + r.get(op3)) & 0xFF);
+    }
+    else if (op0 == 7) // OR
+    {
+        r.set(op1, r.get(op2) | r.get(op3));
+    }
+    else if (op0 == 8) // AND
+    {
+        r.set(op1, r.get(op2) & r.get(op3));
+    }
+    else if (op0 == 9) // XOR
+    {
+        r.set(op1, r.get(op2) ^ r.get(op3));
+    }
+
+    else if (op0 == 0xA)//rotate
+    {
+        uint8_t val = r.get(op1);//00000110
+        int rot = op3 % 8;//000000110
+        uint8_t rotated = (val >> rot) | (val << (8 - rot));//00000001+10000000=10000001
+        r.set(op1, rotated & 0xFF);
     }
     else if (op0 == 0xB) // op0=B jump
     {
