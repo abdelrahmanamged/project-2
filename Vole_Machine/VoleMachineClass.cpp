@@ -7,19 +7,18 @@ VoleMachineClass::VoleMachineClass() {
     // Components are initialized by their default constructors
 }
 
-void VoleMachineClass::start() {
+void VoleMachineClass::start() { // this is the mainstream of the machine. the int main() function in Vole_Machine.cpp calls this function to actually start working. It's an inf. loop that keeps working until the user decides to quit.
     bool running = true;
     while (running) {
         ui.showMenu();
-        int choice = ui.getChoice(); // calls the getChoice() function in ConsoleUI.cpp to returns a choice from 1 to 6 (inclusive) (input)
+        int choice = ui.getChoice();
 
         switch (choice) {
         case 1: {
             string filename;
             cout << "Enter program filename (e.g., program.txt): ";
             cin >> filename;
-            // internally asks user for the address via validaddress()
-            loadProgram(filename, 0);
+            loadProgram(filename); // Removed the '0' to let Abdo's methods pick the address. It calls Abdo's funciton and lets it handle the loading process.
             break;
         }
         case 2:
@@ -46,12 +45,12 @@ void VoleMachineClass::start() {
     }
 }
 
-bool VoleMachineClass::loadProgram(string fileName, int address) {
+bool VoleMachineClass::loadProgram(string fileName) { // Removed 'int address' so as to let abdo's funciton handle input process of the address itself.
     try {
         programloader loader(fileName);
         loader.loadfromfile();
         loader.parseline();
-        loader.validaddress();      // programlaoder code handles user input for address here
+        loader.validaddress();      // Programloader code handles user input for address here
         loader.loadtomemory(memory);
 
         // Sync CPU's PC to the address the user just entered in loader
@@ -72,7 +71,6 @@ void VoleMachineClass::runProgram() {
     }
 
     cout << "Executing program...\n";
-    // Using abdo's CPU run method
     cpu.run(memory, registers);
     cout << "Execution finished or halted.\n";
 }
@@ -93,7 +91,7 @@ void VoleMachineClass::reset() {
     registers.clear();
     screen.clear();
 
-    // The CPU doesn't have a reset function for the halted flag in abdo's code,
-    // so we reset it to get a fresh CPU with halted = false and PC = 0 using its default constructor.
+    // The CPU doesn't have a reset function for the halted flag,
+    // so we reset it to get a fresh CPU using its default constructor.
     cpu = CPU();
 }
