@@ -139,13 +139,27 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConsoleUI.cpp" />
+    <ClCompile Include="CPU.cpp" />
     <ClCompile Include="instruction.cpp" />
     <ClCompile Include="InstructionDecoder.cpp" />
+    <ClCompile Include="Memory.cpp" />
+    <ClCompile Include="programloader.cpp" />
+    <ClCompile Include="RegisterFile.cpp" />
+    <ClCompile Include="ScreenDisplay.cpp" />
+    <ClCompile Include="VoleMachineClass.cpp" />
     <ClCompile Include="Vole_Machine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConsoleUI.h" />
+    <ClInclude Include="CPU.h" />
     <ClInclude Include="instruction.h" />
     <ClInclude Include="InstructionDecoder.h" />
+    <ClInclude Include="Memory.h" />
+    <ClInclude Include="programloader.h" />
+    <ClInclude Include="RegisterFile.h" />
+    <ClInclude Include="ScreenDisplay.h" />
+    <ClInclude Include="VoleMachineClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

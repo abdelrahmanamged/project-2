@@ -1,2 +1,7 @@
-﻿  InstructionDecoder.cpp
-  Vole_Machine.vcxproj -> C:\Users\LOQ\faculty of compuiting and ai\programing\My-Github-projects\assignment2\Vole_Machine\x64\Debug\Vole_Machine.exe
+﻿  ConsoleUI.cpp
+  CPU.cpp
+C:\Users\c 2 d\project2\project-2\Vole_Machine\CPU.cpp(9,23): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  VoleMachineClass.cpp
+  Vole_Machine.cpp
+  Generating Code...
+  Vole_Machine.vcxproj -> C:\Users\c 2 d\project2\project-2\x64\Debug\Vole_Machine.exe

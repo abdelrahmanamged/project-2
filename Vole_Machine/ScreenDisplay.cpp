@@ -8,9 +8,7 @@ ScreenDisplay::ScreenDisplay()
 }
 void ScreenDisplay::write(uint8_t value)
 {
-    stringstream ss;
-    ss << uppercase << hex << setw(2) << setfill('0') << static_cast<int>(value);
-    outputBuffer += ss.str()+" ";//append formatted hex string with a newline to output buffer.
+    outputBuffer += static_cast<char>(value);
 }
 void ScreenDisplay::display()const
 {
