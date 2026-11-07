@@ -13,7 +13,8 @@ private:
     string filename;//the name of the file .txt
 
 public:
-    programloader(string filename) { this->filename = filename; }//constructor to make user get the file name that he want
+    programloader(string filename); //constructor to make user get the file name that he want
+    // programloader(string filename) { this->filename = filename; }//constructor to make user get the file name that he want
     bool z = false;// I used it to know if the file open or not and I have made a while loop to make sure that the file is open  
     string x;// It is a string i used it to store the file instructions and to make sure it hasnot any empty lines 
     fstream txtfile;//I used it to read instructions from the file 

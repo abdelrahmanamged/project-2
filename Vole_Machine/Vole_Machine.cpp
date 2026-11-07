@@ -1,8 +1,7 @@
+#include "VoleMachineClass.h"
 
-
-#include <iostream>
-
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+    VoleMachine machine;
+    machine.start();
+    return 0;
 }
