@@ -8,7 +8,7 @@
 #include "ConsoleUI.h"
 #include <string>
 
-class VoleMachine {
+class VoleMachineClass {
     CPU cpu;
     Memory memory;
     RegisterFile registers;
@@ -17,7 +17,7 @@ class VoleMachine {
     ConsoleUI ui;
 
 public:
-    VoleMachine();
+    VoleMachineClass();
     void start();
     bool loadProgram(std::string fileName, int address);
     void runProgram();

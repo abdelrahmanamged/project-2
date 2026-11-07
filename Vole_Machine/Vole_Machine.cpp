@@ -1,7 +1,7 @@
 #include "VoleMachineClass.h"
 
 int main() {
-    VoleMachine machine;
+    VoleMachineClass machine;
     machine.start();
     return 0;
 }

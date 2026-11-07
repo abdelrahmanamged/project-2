@@ -21,7 +21,7 @@ int ConsoleUI::getChoice() {
         if (choice <= 6 && choice >= 1) break;
         cout << "Please enter a valid choice. The choice you enter must be an integer from 1 to 6 (inclusive).\n";
     }
-    return choice;
+    return choice; // return an integer from 1 to 6 (inclusive) directly to the switch statment inside VoleMachine::start()
 }
 /*
 int ConsoleUI::getLoadAddress() {
@@ -34,19 +34,18 @@ int ConsoleUI::getLoadAddress() {
 */
 int ConsoleUI::getLoadAddress() {
     int address;
+    cout << "Enter starting memory address (Hex, e.g., 00 to FF, must be even and not FF): ";
     while (true) {
-        cout << "Enter starting memory address (Hex, e.g., 00 to FF, must be even and not FF): ";
         cin >> hex >> address >> dec; // cin expects decimal no. by default, but 'hex' here tells it to treat the next input as hexadecimal. the 'dec' at the end returns the default behavior of cin to let it expect decimals instead so it doesn't affect further inputs
-
+       
         // Check if the address is even and not FF (0xFF)
         if (address % 2 == 0 && address != 0xFF) {
             break; // Valid input, exit the loop
         }
-
         cout << "Invalid input. The address must be an even number and cannot be FF.\n";
     }
 
-    return address;
+    return address; // return the validated even integer back to VoleMachine, which then passes it down into ProgramLoader or CPU::setPC() so the program knows when to put the program.
 }
 
 int ConsoleUI::chooseExecutionMode() {
@@ -64,7 +63,7 @@ int ConsoleUI::chooseExecutionMode() {
 
 void ConsoleUI::displayMachineState(const CPU& cpu, const Memory& memory, const RegisterFile& registers, const ScreenDisplay& screen) { // THIS IS A READ-ONLY FUNCTION AND THUS WE USED A CONSTANT REFERENCE FOR THE PARAMETERS FOR OPTIMIZATION PURPOSES.
     cout << "\n--- CPU State ---\n";
-    cout << "Program Counter (PC): " << uppercase << hex << cpu.getPC() << dec << "\n"; // hex here tells the program to print in hexadecimal temporarily so it prints 0A in hexadecimals instead of 10 in decimals
+    cout << "Program Counter (PC): " << uppercase << hex << cpu.getPC() << dec << nouppercase << "\n"; // hex here tells the program to print in hexadecimal temporarily so it prints 0A in hexadecimals instead of 10 in decimals
     cout << "Instruction Register (IR): " << cpu.getIR() << "\n";
     cout << "Halted: " << (cpu.isHalted() ? "Yes" : "No") << "\n"; // print "Yes" if the cpu.isHalted() returns true and print "No" if cpu.isHalted() returns false. this prints the halt state of the program.
 

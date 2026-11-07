@@ -3,15 +3,15 @@
 
 using namespace std;
 
-VoleMachine::VoleMachine() {
+VoleMachineClass::VoleMachineClass() {
     // Components are initialized by their default constructors
 }
 
-void VoleMachine::start() {
+void VoleMachineClass::start() {
     bool running = true;
     while (running) {
         ui.showMenu();
-        int choice = ui.getChoice();
+        int choice = ui.getChoice(); // calls the getChoice() function in ConsoleUI.cpp to returns a choice from 1 to 6 (inclusive) (input)
 
         switch (choice) {
         case 1: {
@@ -46,7 +46,7 @@ void VoleMachine::start() {
     }
 }
 
-bool VoleMachine::loadProgram(string fileName, int address) {
+bool VoleMachineClass::loadProgram(string fileName, int address) {
     try {
         programloader loader(fileName);
         loader.loadfromfile();
@@ -65,19 +65,19 @@ bool VoleMachine::loadProgram(string fileName, int address) {
     }
 }
 
-void VoleMachine::runProgram() {
+void VoleMachineClass::runProgram() {
     if (cpu.isHalted()) {
         cout << "CPU is halted. Please reset and load a program to run.\n";
         return;
     }
 
     cout << "Executing program...\n";
-    // Using teammate's CPU run method
+    // Using abdo's CPU run method
     cpu.run(memory, registers);
     cout << "Execution finished or halted.\n";
 }
 
-void VoleMachine::stepProgram() {
+void VoleMachineClass::stepProgram() {
     if (cpu.isHalted()) {
         cout << "CPU is halted. Cannot step further.\n";
         return;
@@ -88,12 +88,12 @@ void VoleMachine::stepProgram() {
     ui.displayMachineState(cpu, memory, registers, screen);
 }
 
-void VoleMachine::reset() {
+void VoleMachineClass::reset() {
     memory.clear();
     registers.clear();
     screen.clear();
 
-    // The CPU doesn't have a reset function for the halted flag in the teammate's code,
-    // so we re-instantiate it to get a fresh CPU with halted = false and PC = 0.
+    // The CPU doesn't have a reset function for the halted flag in abdo's code,
+    // so we reset it to get a fresh CPU with halted = false and PC = 0 using its default constructor.
     cpu = CPU();
 }
