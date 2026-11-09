@@ -63,29 +63,7 @@ bool VoleMachineClass::loadProgram(string fileName) { // Removed 'int address' s
         return false;
     }
 }
-/*
-void VoleMachineClass::runProgram() {
-    if (cpu.isHalted()) {
-        cout << "CPU is halted. Please reset and load a program to run.\n";
-        return;
-    }
 
-    cout << "Executing program...\n";
-    cpu.run(memory, registers);
-    cout << "Execution finished or halted.\n";
-}
-
-void VoleMachineClass::stepProgram() {
-    if (cpu.isHalted()) {
-        cout << "CPU is halted. Cannot step further.\n";
-        return;
-    }
-
-    cpu.step(memory, registers);
-    cout << "Executed one step.\n";
-    ui.displayMachineState(cpu, memory, registers, screen);
-}
-*/
 void VoleMachineClass::runProgram() {
     if (cpu.isHalted()) {
         cout << "CPU is halted. Please reset and load a program to run.\n";
