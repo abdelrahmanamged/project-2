@@ -167,6 +167,7 @@ Run the executable:
 ./VoleSimulatorCLI
 ```
 
+**Note:** The compilation command assumes the source and header directory structure matches the repository layout. Adjust the paths if necessary.
 
 ---
 
@@ -202,6 +203,15 @@ C000 ; Halt execution
 C000 ; Halt execution
 ```
 
+**Expected Output:**
+
+```text
+EVEN
+```
+
+Changing the initial value loaded into `R1` allows testing both execution paths.
+
+---
 
 ## 👥 7. Team Members
 
@@ -209,10 +219,10 @@ Developed collaboratively by students of the Faculty of Computers and Artificial
 
 | Team Member | Student ID | Key Contributions |
 |---|---|---|
-| **Omar Ayman Mohamed (Team Leader)** Initial class architecture design, assembly test programs, Qt GUI synchronization, and debugging. |
-| **Abdelrahman Amgad Mosad GitHub repository management, CPU and ProgramLoader implementation, AI-assisted design synthesis, and project walkthrough video. |
-| **Hesham Waleed Fawzi Technical documentation, VoleMachine coordination, and ConsoleUI refinements. |
-| **Yassine Awadallah Bakry Initial PlantUML diagrams, Memory, RegisterFile, and ScreenDisplay implementation. |
+| **Omar Ayman Mohamed (Team Leader)** | 20251267 | Initial class architecture design, assembly test programs, Qt GUI synchronization, and debugging. |
+| **Abdelrahman Amgad Mosad** | 20250353 | GitHub repository management, CPU and ProgramLoader implementation, AI-assisted design synthesis, and project walkthrough video. |
+| **Hesham Waleed Fawzi** | 20251472 | Technical documentation, VoleMachine coordination, and ConsoleUI refinements. |
+| **Yassine Awadallah Bakry** | 20251483 | Initial PlantUML diagrams, Memory, RegisterFile, and ScreenDisplay implementation. |
 
 ---
 
@@ -222,3 +232,4 @@ This project was developed for educational purposes as part of the **CS213 – O
 
 ---
 
+⭐ **If you find this project interesting, feel free to explore the repository and check out the implementation!**
